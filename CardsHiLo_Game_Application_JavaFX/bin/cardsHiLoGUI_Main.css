@@ -1,0 +1,44 @@
+.root{
+-fx-base: rgb(255, 255, 255);
+-fx-background: rgb(200, 200, 200);
+
+}
+
+.label {
+-fx-font-size:16;
+-fx-float:right;
+
+}
+
+.textField{
+	-fx-margin-right: 20px;
+}
+
+.button:hover{
+
+	
+	-fx-text-fill: black;
+ 	
+	-fx-font-weight: bold;
+	-fx-effect: dropshadow(one-pass-box, blue, 8, 0.0, 2, 0);
+}
+
+Button {
+ 	-fx-padding: 5 5 5 5;
+}
+
+VBox {
+	-fx-background-color: lightblue;
+
+}
+
+TextField {
+	-fx-padding-top: 40;
+	-fx-background-color: transparent;
+	-fx-font-size: 16;
+}
+MenuBar {
+	-fx-background-color: White;
+ 	-fx-text-weight: bold;
+}
+
