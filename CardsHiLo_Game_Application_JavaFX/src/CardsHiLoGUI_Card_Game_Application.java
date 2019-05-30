@@ -428,7 +428,8 @@ public class CardsHiLoGUI_Card_Game_Application extends Application {
 		Stage aboutMenu = new Stage();
 		VBox vbAboutMn = new VBox();
 		GridPane gpA = new GridPane();
-
+		
+		
 		//defining measures to about menu
 		aboutMenu.setWidth(572);
 		aboutMenu.setHeight(180);
@@ -458,6 +459,7 @@ public class CardsHiLoGUI_Card_Game_Application extends Application {
 		aboutMenu.setAlwaysOnTop(true);
 		aboutMenu.setResizable(false);
 		aboutMenu.setMaximized(false);
+	
 
 		//creating the scene of the about menu
 		Scene ab = new Scene (vbAboutMn);
