@@ -442,11 +442,11 @@ public class CardsHiLoGUI_Card_Game_Application extends Application {
 		lblAbout = new Label(" HiLo is a card game where a card is dealt and the player \n" +
 				" has to guess whether the next card that is dealt will be \n" + 
 				" higher or lower than the first card."+ 
-				"\n \n Created by: \n              Lucas Maximo Marques Vigarinho - 2989295 \n" +
-				"              HDC-HCI-AND-GUI-Assignment2 \n " + 
+				"\n \n Created by: \n              Lucas Maximo  \n" +
+				"              \n " + 
 				"             CardsHiLoGUI_Card_Game_Application");
 		lblLucas = new Label("");
-		imgLucas = new Image("file:cards/Lucas.jpg", 220, 170, true, true);
+		imgLucas = new Image("file:cards/black_joker.png", 220, 170, true, true);
 		imgVLucas.setImage(imgLucas);
 
 		//defining layout of the menu about
