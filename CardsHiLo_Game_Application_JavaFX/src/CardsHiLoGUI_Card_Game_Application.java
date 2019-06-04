@@ -471,10 +471,10 @@ public class CardsHiLoGUI_Card_Game_Application extends Application {
 		aboutMenu.show();
 	
 	}//closing the about menu method
-
+	
 	/** Creating the start method with the main stage, using throw exception */
 	@Override
-	public void start(Stage mainStage) throws Exception {
+	public void start(Stage stageHiloStage) throws Exception {
 
 		//using the instance of the deck of cards to create the deck of cards 
 		doc.deckOfCards();
@@ -482,11 +482,11 @@ public class CardsHiLoGUI_Card_Game_Application extends Application {
 		doc.shuffle();
 		
 		//Create the main layout of the main interface
-		mainStage.setWidth(700);
-		mainStage.setHeight(500);
+		stageHiloStage.setWidth(700);
+		stageHiloStage.setHeight(500);
 
 		//Set title of the BOX
-		mainStage.setTitle("Hi-Lo Card Game");
+		stageHiloStage.setTitle("Hi-Lo Card Game");
 
 		//Creating the containers and components to the layout of the main stage
 		VBox vbLeft = new VBox();
@@ -565,19 +565,13 @@ public class CardsHiLoGUI_Card_Game_Application extends Application {
 		
 
 		//Setting the Scene
-		mainStage.setScene(s);
+		stageHiloStage.setScene(s);
 
 		//Show the Stage 
-		mainStage.show();
+		stageHiloStage.show();
 
 	}//Close start of mainStage
 
-	/** Creating the main method to run the application */
-	public static void main(String[] args) {
 
-		//Initiating launching program
-		launch();
-
-	}//close the main method
 
 }//close the class
