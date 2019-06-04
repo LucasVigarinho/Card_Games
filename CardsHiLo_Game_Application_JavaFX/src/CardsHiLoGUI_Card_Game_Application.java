@@ -572,6 +572,12 @@ public class CardsHiLoGUI_Card_Game_Application extends Application {
 
 	}//Close start of mainStage
 
+	/** Creating the main method to run the application */
+	public static void main(String[] args) {
 
+		//Initiating launching program
+		launch();
+
+	}//close the main method
 
 }//close the class
