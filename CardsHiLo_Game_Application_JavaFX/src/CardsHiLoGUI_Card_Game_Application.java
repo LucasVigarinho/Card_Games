@@ -61,7 +61,7 @@ import javafx.scene.input.KeyCombination;
 
 
 /** Create the main class of the game */
-public class CardsHiLoGUI_Card_Game_Application extends Application {
+public class CardsHiLoGUI_Card_Game_Application {
 
 	/** instantiating Deck of Cards to be accessed */
 	DeckOfCards doc = new DeckOfCards();
@@ -124,11 +124,11 @@ public class CardsHiLoGUI_Card_Game_Application extends Application {
 	/** Constructor of the class */ 
 	public CardsHiLoGUI_Card_Game_Application() {
 		
-	}//close constructor 
+	
 
-	/** Create the override init, to initiate the game */
-	@Override
-	public void init() {
+//	/** Create the override init, to initiate the game */
+//	@Override
+//	public void init() {
 
 
 		//Instantiating components
@@ -419,7 +419,9 @@ public class CardsHiLoGUI_Card_Game_Application extends Application {
 		imgLeft = new ImageView();
 		imgRight = new ImageView();
 
-	}//Close init()
+	}//close constructor 
+	
+//	}//Close init()
 
 	/** Creating the about menu with the file not found exception for using image */
 	public  void aboutMenu() throws FileNotFoundException {
@@ -473,9 +475,11 @@ public class CardsHiLoGUI_Card_Game_Application extends Application {
 	}//closing the about menu method
 	
 	/** Creating the start method with the main stage, using throw exception */
-	@Override
-	public void start(Stage stageHiloStage) throws Exception {
+//	@Override
+//	public void start(Stage stageHiloStage) throws Exception {
+	public void start() throws Exception {
 
+		Stage stageHiloStage = new Stage();
 		//using the instance of the deck of cards to create the deck of cards 
 		doc.deckOfCards();
 		//defining which the initial game starts with the cards shuffled 
@@ -572,12 +576,12 @@ public class CardsHiLoGUI_Card_Game_Application extends Application {
 
 	}//Close start of mainStage
 
-	/** Creating the main method to run the application */
-	public static void main(String[] args) {
-
-		//Initiating launching program
-		launch();
-
-	}//close the main method
+//	/** Creating the main method to run the application */
+//	public static void main(String[] args) {
+//
+//		//Initiating launching program
+//		launch();
+//
+//	}//close the main method
 
 }//close the class

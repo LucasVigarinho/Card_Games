@@ -40,13 +40,19 @@ public class Main_Stage_Game extends Application {
 	}//closing constructor
 	
 	/** Create the override init, to initiate the game **/
+	@SuppressWarnings("static-access")
 	@Override
 	public void init() {
 		
 		//creating the button component
 		btn_HiLoGUI_Game = new Button("HiLoGame");
 		btn_HiLoGUI_Game.setOnAction(ae-> {
-//			hiLoGUI.start(stage);
+			try {
+				hiLoGUI.start();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		});
 		
 	}//closing the init
