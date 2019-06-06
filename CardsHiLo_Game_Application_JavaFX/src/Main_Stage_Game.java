@@ -86,11 +86,14 @@ public class Main_Stage_Game extends Application {
 		*   and also the vertical boxes 
 		*/
 		gp.add(btn_HiLoGUI_Game, 1, 1);
-
-
+		btn_HiLoGUI_Game.setMinWidth(300);
+		btn_HiLoGUI_Game.setMinHeight(100);
+		
 		
 		//Beautification... 
-				
+		btn_HiLoGUI_Game.setStyle("-fx-Background-color: yellow;");
+		vbMain.setStyle("-fx-Background-color: gray;");
+
 		//positioning the aligment of the vertical box in the center
 
 

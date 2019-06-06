@@ -124,45 +124,39 @@ public class CardsHiLoGUI_Card_Game_Application {
 	/** Constructor of the class */ 
 	public CardsHiLoGUI_Card_Game_Application() {
 		
-	
-
-//	/** Create the override init, to initiate the game */
-//	@Override
-//	public void init() {
-
 
 		//Instantiating components
 		mBar = new MenuBar();
 		mnuFile = new Menu("File");
 		mnItNewGame = new MenuItem("New Game");
-		//creating the action of the new game menu, in the main stage, to make possible utilize the native methods 
-				mnItNewGame.setOnAction(ae-> {		
+			//creating the action of the new game menu, in the main stage, to make possible utilize the native methods 
+					mnItNewGame.setOnAction(ae-> {		
+						
+						//using the instance of the deck of cards to create the deck of cards 
+						doc.deckOfCards();
+						//defining which the initial game starts with the cards shuffled 
+						doc.shuffle();
+						//initiating all the components for a new game
+						flag = false;
+						progValue = 0;
+						rdLower.setSelected(true);
+						rdHigher.setDisable(true);
+						btnDealFirst.setDisable(false);
+						btnDealSecond.setDisable(false);
+						progBar.setProgress(progValue);
 					
-					//using the instance of the deck of cards to create the deck of cards 
-					doc.deckOfCards();
-					//defining which the initial game starts with the cards shuffled 
-					doc.shuffle();
-					//initiating all the components for a new game
-					flag = false;
-					progValue = 0;
-					rdLower.setSelected(true);
-					rdHigher.setDisable(true);
-					btnDealFirst.setDisable(false);
-					btnDealSecond.setDisable(false);
-					progBar.setProgress(progValue);
-				
-					lblEndGame.setText("  ");
-					lblWonLose.setText("  ");
-					//defining the default cards for every new game
-					card1Def = "file:cards/blue_back.jpg";
-					card2Def = "file:cards/blue_back.jpg";
-					imgFirst = new Image(card1Def, 180, 250, false, false);
-					imgLeft.setImage(imgFirst);
-					imgSecond = new Image(card2Def, 180, 250, false, false);
-					imgRight.setImage(imgSecond);
-				
-				
-				});//closing the new game action menu
+						lblEndGame.setText("  ");
+						lblWonLose.setText("  ");
+						//defining the default cards for every new game
+						card1Def = "file:cards/blue_back.jpg";
+						card2Def = "file:cards/blue_back.jpg";
+						imgFirst = new Image(card1Def, 180, 250, false, false);
+						imgLeft.setImage(imgFirst);
+						imgSecond = new Image(card2Def, 180, 250, false, false);
+						imgRight.setImage(imgSecond);
+					
+					
+					});//closing the new game action menu
 		mnItShuffle = new MenuItem("Shuffle");
 		//defining the action of the shuffle menu
 		mnItShuffle.setOnAction(ae->{ doc.shuffle();});
