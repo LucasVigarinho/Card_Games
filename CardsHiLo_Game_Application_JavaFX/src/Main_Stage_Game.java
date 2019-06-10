@@ -30,7 +30,7 @@ public class Main_Stage_Game extends Application {
 	
 	
 	//Creating the Buttons
-	Button btn_HiLoGUI_Game;
+	Button btn_HiLoGUI_Game, btn_Blackjack_Game;
 	
 	
 	
@@ -55,7 +55,19 @@ public class Main_Stage_Game extends Application {
 			}
 		});
 		
+		btn_Blackjack_Game = new Button("BlackJack");
+		btn_Blackjack_Game.setOnAction(ae-> {
+			try {
+//				blackJack.start();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		});
+		
 	}//closing the init
+
+	
 
 
 
@@ -86,9 +98,11 @@ public class Main_Stage_Game extends Application {
 		*   and also the vertical boxes 
 		*/
 		gp.add(btn_HiLoGUI_Game, 1, 1);
+		gp.add(btn_Blackjack_Game, 3, 1);
 		btn_HiLoGUI_Game.setMinWidth(300);
 		btn_HiLoGUI_Game.setMinHeight(100);
-		
+		btn_Blackjack_Game.setMinWidth(300);
+		btn_Blackjack_Game.setMinHeight(100);
 		
 		//Beautification... 
 		btn_HiLoGUI_Game.setStyle("-fx-Background-color: yellow;");
