@@ -1,3 +1,6 @@
+package hilo_game;
+import deck_of_cards.DeckOfCards;
+import deck_of_cards.Card;
 /** 
  * 
  * (a) Create a project called 'CardsHiLoGUI'. Create a main interface for the
@@ -30,8 +33,10 @@
  * @author Lucas Maximo 
  * */
 //Standard javafx imports.
-import java.io.FileNotFoundException;
-import javafx.application.Application;
+
+
+
+
 import javafx.application.Platform;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -45,7 +50,6 @@ import javafx.geometry.Pos;
 //Import visual components
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.MenuBar;
@@ -59,8 +63,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCombination;
 
+import java.io.FileNotFoundException;
 
-/** Create the main class of the game */
+/** Create the class of the game HiLo*/
 public class CardsHiLoGUI_Card_Game_Application {
 
 	/** instantiating Deck of Cards to be accessed */

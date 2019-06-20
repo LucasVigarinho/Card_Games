@@ -1,4 +1,5 @@
 //import javafx imports.
+import hilo_game.CardsHiLoGUI_Card_Game_Application;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -12,14 +13,13 @@ import javafx.geometry.Pos;
 
 //import visual components
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuBar;
 
 //import images
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
-
 
 
 /** **/
@@ -58,6 +58,12 @@ public class Main_Stage_Game extends Application {
 		btn_Blackjack_Game = new Button("BlackJack");
 		btn_Blackjack_Game.setOnAction(ae-> {
 			try {
+				Alert dialogBox = new Alert(Alert.AlertType.INFORMATION);
+				dialogBox.setTitle("Black Jack - Card Games");
+				dialogBox.setHeaderText("Game in construction!");
+				dialogBox.setContentText("Thank you!");
+				dialogBox.showAndWait();
+				
 //				blackJack.start();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
