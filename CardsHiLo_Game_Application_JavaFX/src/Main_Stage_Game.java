@@ -1,4 +1,6 @@
 //import javafx imports.
+import java.io.FileNotFoundException;
+
 import hilo_game.CardsHiLoGUI_Card_Game_Application;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -13,13 +15,15 @@ import javafx.geometry.Pos;
 
 //import visual components
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuBar;
-
+import javafx.scene.control.MenuItem;
 //import images
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCombination;
 
 
 /** **/
@@ -27,11 +31,19 @@ public class Main_Stage_Game extends Application {
 
 	/** Instantiating HiloCards game */
 	CardsHiLoGUI_Card_Game_Application hiLoGUI = new CardsHiLoGUI_Card_Game_Application();
-	
+
+	/** Instantiating BlackJack game */
 	
 	//Creating the Buttons
 	Button btn_HiLoGUI_Game, btn_Blackjack_Game;
 	
+	//Creating the menu
+		/** (b) Add a menu bar and 'File' menu. The 'File' menu should contain the items 'New
+		 * Game', 'Shuffle' and 'Exit'. Implement these menu items fully. Add a 'Help' menu
+		 * with an 'About' item to show your student name and number in a dialog. */
+		MenuBar mBar;
+		Menu mnuFile, mnuHelp;
+		MenuItem mnItNewGame, mnItShuffle, mnItExit, mnItAbout;
 	
 	
 	/** Creating the constructor for the games **/
@@ -71,9 +83,78 @@ public class Main_Stage_Game extends Application {
 			}
 		});
 		
+		//Instantiating components
+				mBar = new MenuBar();
+				mnuFile = new Menu("File");		
+				mnItExit = new MenuItem("Exit");
+				mnItExit.setOnAction(ae -> Platform.exit());
+				mnuHelp = new Menu("Help");
+				mnItAbout = new MenuItem("About");
+				mnItAbout.setAccelerator(KeyCombination.keyCombination("Ctrl+T"));
+				//setting action of the about menu
+				mnItAbout.setOnAction(ae -> {
+					//open try catch statement
+					try {
+						aboutMenu();
+					} catch (FileNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}//close the try catch
+				});//close the action of the about menu
+				
+		
 	}//closing the init
 
+	/** Creating the about menu with the file not found exception for using image */
+	public  void aboutMenu() throws FileNotFoundException {
+
+		//Creating the about menu layout
+		Stage aboutMenu = new Stage();
+		VBox vbAboutMn = new VBox();
+		GridPane gpA = new GridPane();
+		
+		
+		//defining measures to about menu
+		aboutMenu.setWidth(572);
+		aboutMenu.setHeight(180);
+
+		//defining the title of the about menu 
+		aboutMenu.setTitle("About");
+
+		//defining the components and the data of the components 
+		imgVBlackJack = new ImageView(imgVBlack);
+		lblAbout = new Label(" HiLo is a card game where a card is dealt and the player \n" +
+				" has to guess whether the next card that is dealt will be \n" + 
+				" higher or lower than the first card."+ 
+				"\n \n Created by: \n              Lucas Maximo  \n" +
+				"              \n " + 
+				"             CardsHiLoGUI_Card_Game_Application");
+		lblLucas = new Label("");
+		imgLucas = new Image("file:cards/black_joker.png", 220, 170, true, true);
+		imgVLucas.setImage(imgLucas);
+
+		//defining layout of the menu about
+		vbAboutMn.getChildren().add(gpA);
+		gpA.add(lblAbout, 1, 1);
+		gpA.add(lblLucas, 1, 1);
+		gpA.add(imgVLucas, 3, 1);
+
+		//defining about menu squema
+		aboutMenu.setAlwaysOnTop(true);
+		aboutMenu.setResizable(false);
+		aboutMenu.setMaximized(false);
 	
+
+		//creating the scene of the about menu
+		Scene ab = new Scene (vbAboutMn);
+
+		//setting the scene of the about menu
+		aboutMenu.setScene(ab);
+
+		//creating the show to about menu
+		aboutMenu.show();
+	
+	}//closing the about menu method
 
 
 
