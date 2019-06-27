@@ -32,18 +32,21 @@ public class Main_Stage_Game extends Application {
 	/** Instantiating HiloCards game */
 	CardsHiLoGUI_Card_Game_Application hiLoGUI = new CardsHiLoGUI_Card_Game_Application();
 
+	//Creating the menu
+	/** (b) Add a menu bar and 'File' menu. The 'File' menu should contain the items 'New
+	 * Game', 'Shuffle' and 'Exit'. Implement these menu items fully. Add a 'Help' menu
+	 * with an 'About' item to show your student name and number in a dialog. */
+	MenuBar mBar;
+	Menu mnuFile, mnuHelp;
+	MenuItem mnItNewGame, mnItShuffle, mnItExit, mnItAbout;
+	
+	
 	/** Instantiating BlackJack game */
 	
 	//Creating the Buttons
 	Button btn_HiLoGUI_Game, btn_Blackjack_Game;
 	
-	//Creating the menu
-		/** (b) Add a menu bar and 'File' menu. The 'File' menu should contain the items 'New
-		 * Game', 'Shuffle' and 'Exit'. Implement these menu items fully. Add a 'Help' menu
-		 * with an 'About' item to show your student name and number in a dialog. */
-		MenuBar mBar;
-		Menu mnuFile, mnuHelp;
-		MenuItem mnItNewGame, mnItShuffle, mnItExit, mnItAbout;
+
 	
 	
 	/** Creating the constructor for the games **/
@@ -52,10 +55,32 @@ public class Main_Stage_Game extends Application {
 	}//closing constructor
 	
 	/** Create the override init, to initiate the game **/
-	@SuppressWarnings("static-access")
 	@Override
 	public void init() {
+		//Instantiating components
+		mBar = new MenuBar();
+		mnuFile = new Menu("File");		
+		mnItExit = new MenuItem("Exit");
+		mnItExit.setOnAction(ae -> Platform.exit());
+		mnuHelp = new Menu("Help");
+		mnItAbout = new MenuItem("About");
+		mnItAbout.setAccelerator(KeyCombination.keyCombination("Ctrl+T"));
+		//setting action of the about menu
+		mnItAbout.setOnAction(ae -> {
+			//open try catch statement
+			try {
+				aboutMenu();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}//close the try catch
+		});//close the action of the about menu
 		
+		//Create the menu
+		mBar.getMenus().addAll(mnuFile, mnuHelp);
+		mnuFile.getItems().addAll(mnItExit);
+		mnuHelp.getItems().add(mnItAbout);
+
 		//creating the button component
 		btn_HiLoGUI_Game = new Button("HiLoGame");
 		btn_HiLoGUI_Game.setOnAction(ae-> {
@@ -83,29 +108,14 @@ public class Main_Stage_Game extends Application {
 			}
 		});
 		
-		//Instantiating components
-				mBar = new MenuBar();
-				mnuFile = new Menu("File");		
-				mnItExit = new MenuItem("Exit");
-				mnItExit.setOnAction(ae -> Platform.exit());
-				mnuHelp = new Menu("Help");
-				mnItAbout = new MenuItem("About");
-				mnItAbout.setAccelerator(KeyCombination.keyCombination("Ctrl+T"));
-				//setting action of the about menu
-				mnItAbout.setOnAction(ae -> {
-					//open try catch statement
-					try {
-						aboutMenu();
-					} catch (FileNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}//close the try catch
-				});//close the action of the about menu
+		
+
 				
 		
 	}//closing the init
 
 	/** Creating the about menu with the file not found exception for using image */
+
 	public  void aboutMenu() throws FileNotFoundException {
 
 		//Creating the about menu layout
@@ -122,16 +132,18 @@ public class Main_Stage_Game extends Application {
 		aboutMenu.setTitle("About");
 
 		//defining the components and the data of the components 
-		imgVBlackJack = new ImageView(imgVBlack);
-		lblAbout = new Label(" HiLo is a card game where a card is dealt and the player \n" +
+		Image imgVBlack = null;
+//		ImageView imgVBlackJack = new ImageView(imgVBlack);
+		Label lblAbout = new Label(" HiLo is a card game where a card is dealt and the player \n" +
 				" has to guess whether the next card that is dealt will be \n" + 
 				" higher or lower than the first card."+ 
 				"\n \n Created by: \n              Lucas Maximo  \n" +
 				"              \n " + 
 				"             CardsHiLoGUI_Card_Game_Application");
-		lblLucas = new Label("");
-		imgLucas = new Image("file:cards/black_joker.png", 220, 170, true, true);
-		imgVLucas.setImage(imgLucas);
+		Label lblLucas = new Label("");
+		Image imgLucas = new Image("file:cards/black_joker.png", 220, 170, true, true);
+		ImageView imgVLucas = null;
+//		imgVLucas.setImage(imgLucas);
 
 		//defining layout of the menu about
 		vbAboutMn.getChildren().add(gpA);
@@ -169,15 +181,17 @@ public class Main_Stage_Game extends Application {
 		//Set title of the BOX
 		mainStage.setTitle("Card_Games");
 
+		
 		//Creating the containers and components to the layout of the main stage
 		VBox vbMain = new VBox();
 
 		//Create a layout / organizing containers in the Border Pane, with the components.
 		GridPane gp = new GridPane();
-
+		
 		
 
 		//Populating the containers with the components
+		vbMain.getChildren().add(mBar);
 		vbMain.getChildren().add(gp);
 
 

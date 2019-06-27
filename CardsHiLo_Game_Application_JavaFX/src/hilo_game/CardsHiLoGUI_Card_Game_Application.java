@@ -9,6 +9,7 @@ import deck_of_cards.Card;
 
 import javafx.application.Platform;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.scene.Scene;
 
 //import layout 
@@ -34,6 +35,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCombination;
 
 import java.io.FileNotFoundException;
+
+
+
 
 /** Create the class of the game HiLo*/
 public class CardsHiLoGUI_Card_Game_Application {
@@ -136,7 +140,9 @@ public class CardsHiLoGUI_Card_Game_Application {
 		//defining the action of the shuffle menu
 		mnItShuffle.setOnAction(ae->{ doc.shuffle();});
 		mnItExit = new MenuItem("Exit");
-		mnItExit.setOnAction(ae -> Platform.exit());
+	
+		
+		
 		mnuHelp = new Menu("Help");
 		mnItAbout = new MenuItem("About");
 		mnItAbout.setAccelerator(KeyCombination.keyCombination("Ctrl+T"));
@@ -473,14 +479,17 @@ public class CardsHiLoGUI_Card_Game_Application {
 
 		//Create a layout / organizing containers in the Border Pane, with the components.
 		GridPane gp = new GridPane();
-
-		
 		//Defining the default images to the main stage
 		imgFirst = new Image(card1Def, 180, 250, false, false);
 		imgLeft.setImage(imgFirst);
 		imgSecond = new Image(card2Def ,180, 250, false, false);
 		imgRight.setImage(imgSecond);
 
+		//closing game individually
+		mnItExit.setOnAction(ae-> {
+			stageHiloStage.close();
+			});
+		
 		//Populating the containers with the components
 		vbMain.getChildren().add(mBar);
 		vbMain.getChildren().add(gp);
